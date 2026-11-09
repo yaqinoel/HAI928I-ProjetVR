@@ -1,0 +1,22 @@
+# Unity project folders directly under the repository root
+/*/[Ll]ibrary/
+/*/[Tt]emp/
+/*/[Oo]bj/
+/*/[Ll]ogs/
+/*/[Uu]ser[Ss]ettings/
+/*/[Mm]emoryCaptures/
+/*/[Rr]ecordings/
+
+# Build exports, including generated iOS Xcode projects
+/*/[Bb]uild/
+/*/[Bb]uilds/
+
+# Local IDE data and Unity-generated project files
+.idea/
+.vs/
+/*/*.csproj
+/*/*.sln
+/*/*.slnx
+
+# macOS Finder metadata
+.DS_Store
