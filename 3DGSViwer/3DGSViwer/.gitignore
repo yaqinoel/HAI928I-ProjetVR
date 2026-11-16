@@ -1,0 +1,13 @@
+# Unity-generated files for this nested project
+/Library/
+/Temp/
+/Obj/
+/Logs/
+/UserSettings/
+/Build/
+/Builds/
+/MemoryCaptures/
+/Recordings/
+/*.csproj
+/*.sln
+/*.slnx
