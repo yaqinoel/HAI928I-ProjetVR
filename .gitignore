@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Unity project folders directly under the repository root
 /*/[Ll]ibrary/
 /*/[Tt]emp/
@@ -10,13 +11,68 @@
 # Build exports, including generated iOS Xcode projects
 /*/[Bb]uild/
 /*/[Bb]uilds/
+=======
+# Unity-generated folders in projects one or two levels below the repository root
+/*/[Ll]ibrary/
+/*/*/[Ll]ibrary/
+/*/[Tt]emp/
+/*/*/[Tt]emp/
+/*/[Oo]bj/
+/*/*/[Oo]bj/
+/*/[Ll]ogs/
+/*/*/[Ll]ogs/
+/*/[Uu]ser[Ss]ettings/
+/*/*/[Uu]ser[Ss]ettings/
+/*/[Mm]emoryCaptures/
+/*/*/[Mm]emoryCaptures/
+/*/[Rr]ecordings/
+/*/*/[Rr]ecordings/
+
+# Build exports, including generated iOS Xcode projects
+/*/[Bb]uild/
+/*/*/[Bb]uild/
+/*/[Bb]uilds/
+/*/*/[Bb]uilds/
+/MobileApp/iOS/
+*.apk
+*.aab
+*.ipa
+*.app.dSYM/
+
+# Raw phone captures used as reconstruction input
+/images/
+>>>>>>> 489a070 (upload projet sur git)
 
 # Local IDE data and Unity-generated project files
 .idea/
 .vs/
+<<<<<<< HEAD
 /*/*.csproj
 /*/*.sln
 /*/*.slnx
 
 # macOS Finder metadata
 .DS_Store
+=======
+.vscode/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.opendb
+*.VC.db
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+>>>>>>> 489a070 (upload projet sur git)
