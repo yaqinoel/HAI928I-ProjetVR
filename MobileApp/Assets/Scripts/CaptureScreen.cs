@@ -115,13 +115,10 @@ public class CaptureScreen : MonoBehaviour
         using (image)
         {
             var conversion = new XRCpuImage.ConversionParams(image, TextureFormat.RGBA32);
-            using var pixels = new NativeArray<byte>(
-                image.GetConvertedDataSize(conversion), Allocator.Temp);
+            using var pixels = new NativeArray<byte>(image.GetConvertedDataSize(conversion), Allocator.Temp);
             image.Convert(conversion, pixels);
 
-            using var jpeg = ImageConversion.EncodeNativeArrayToJPG(
-                pixels, GraphicsFormat.R8G8B8A8_UNorm,
-                (uint)image.width, (uint)image.height, quality: 90);
+            using var jpeg = EncodeScanJpeg(pixels, image.width, image.height);
 
             var file = Path.Combine(scanFolder, $"{photoCount + 1:D4}.jpg");
             File.WriteAllBytes(file, jpeg.ToArray());
@@ -134,5 +131,48 @@ public class CaptureScreen : MonoBehaviour
 
         photoCount++;
         photoCountText.text = $"Photos {photoCount}";
+    }
+
+    // rotate image -90 degree
+    private static NativeArray<byte> EncodeScanJpeg(
+        NativeArray<byte> pixels, int width, int height)
+    {
+        const GraphicsFormat format = GraphicsFormat.R8G8B8A8_UNorm;
+
+        if (Application.platform != RuntimePlatform.IPhonePlayer)
+        {
+            return ImageConversion.EncodeNativeArrayToJPG(
+                pixels, format, (uint)width, (uint)height, quality: 90);
+        }
+
+        // Read each group of four RGBA bytes as one pixel.
+        var source = pixels.Reinterpret<Color32>(sizeof(byte));
+
+        int outputWidth = height;
+        int outputHeight = width;
+        var rotated = new NativeArray<Color32>(source.Length, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+
+        try
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int sourceIndex = y * width + x;
+                    int destinationX = outputWidth -1 -y;
+                    int destinationY = width - 1 - x;
+                    int destinationIndex = destinationY * outputWidth + destinationX;
+
+                    rotated[destinationIndex] = source[sourceIndex];
+                }
+            }
+
+            return ImageConversion.EncodeNativeArrayToJPG(
+                rotated, format, (uint)outputWidth, (uint)outputHeight, quality: 90);
+        }
+        finally
+        {
+            rotated.Dispose();
+        }
     }
 }
