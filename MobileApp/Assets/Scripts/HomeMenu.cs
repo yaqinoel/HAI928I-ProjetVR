@@ -12,5 +12,10 @@ public class HomeMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SceneLibrary"); 
     }
+
+    public void OpenScanHistory()
+    {
+        SceneManager.LoadScene("ScanHistory");
+    }
     
 }
