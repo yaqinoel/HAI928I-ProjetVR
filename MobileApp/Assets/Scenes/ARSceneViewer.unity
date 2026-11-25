@@ -372,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ARSceneViewer
   raycastManager: {fileID: 1656362400}
   anchorManager: {fileID: 1656362399}
-  placementPrefab: {fileID: 1953817627103714713, guid: c6557050c298b4100a4fa1fb3e992d8b, type: 3}
+  placementPrefab: {fileID: 1761240352768037050, guid: 0af45edf526a042838c77c1a0e65a30b, type: 3}
   trackingText: {fileID: 959369908}
 --- !u!1 &195116531
 GameObject:
