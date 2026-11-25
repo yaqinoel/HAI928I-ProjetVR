@@ -7,4 +7,9 @@ public class LibraryScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Home");
     }
+
+    public void OpenARViewer()
+    {
+        SceneManager.LoadScene("ARSceneViewer");
+    }
 }

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScanHistory.unity
     guid: e01a250712c6b40e88b97a3305352b01
+  - enabled: 1
+    path: Assets/Scenes/ARSceneViewer.unity
+    guid: 7c57bdc4ee2d1462595a4a3d72897a88
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 0be9c330d0bd142c28aa441a3d0235bd, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
