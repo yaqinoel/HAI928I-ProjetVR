@@ -14,6 +14,7 @@ public class ARSceneViewer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private ARAnchorManager anchorManager;
     [SerializeField] private GameObject placementPrefab;
     [SerializeField] private TMP_Text trackingText; // text showing tracking state
+    [SerializeField] private ARModelGestures gestures;
 
     private readonly List<ARRaycastHit> hits = new();
     private ARAnchor activeAnchor;
@@ -85,7 +86,8 @@ public class ARSceneViewer : MonoBehaviour, IPointerClickHandler
             
             // anchor for objet in the scene
             activeAnchor = result.value;
-            Instantiate(placementPrefab, activeAnchor.transform, false);
+            GameObject instance = Instantiate(placementPrefab, activeAnchor.transform, false);
+            gestures.SetTarget(instance.transform);
             trackingText.text = "Objet placed, walk around to look.";
         }
         catch (Exception error)
@@ -115,9 +117,9 @@ public class ARSceneViewer : MonoBehaviour, IPointerClickHandler
         }
 
         activeAnchor = null;
+        gestures.SetTarget(null);
         ShowTrackingState(ARSession.state);
     }
-
 
 
     public void GoBackToLibrary()

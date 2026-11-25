@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 181054005}
   - component: {fileID: 181054004}
   - component: {fileID: 181054008}
+  - component: {fileID: 181054009}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -374,6 +375,20 @@ MonoBehaviour:
   anchorManager: {fileID: 1656362399}
   placementPrefab: {fileID: 1761240352768037050, guid: 0af45edf526a042838c77c1a0e65a30b, type: 3}
   trackingText: {fileID: 959369908}
+  gestures: {fileID: 181054009}
+--- !u!114 &181054009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181054003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca81141c8e1c4a80b6cdbd2ce15df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ARModelGestures
+  arCamera: {fileID: 195116538}
 --- !u!1 &195116531
 GameObject:
   m_ObjectHideFlags: 0
